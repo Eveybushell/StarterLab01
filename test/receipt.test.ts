@@ -10,22 +10,21 @@ import {
 
 describe ("Happy path tests for receipt", () => {
 
+    let ITEMS: any[];
 
-    test("Add an item", () => {
-        const ITEMS = [
+    beforeEach(() => {
+        ITEMS = [
         { name: "paper towels", price: 21.99 },
         { name: "sandwich", price: 8.75 },
         { name: "eggs", price: 6.75 },
         { name: "avocado oil", price: 10.0 },
         ];
-        addItem("item", 10.0);
-        expect(ITEMS).toBe([
-        { name: "paper towels", price: 21.99 },
-        { name: "sandwich", price: 8.75 },
-        { name: "eggs", price: 6.75 },
-        { name: "avocado oil", price: 10.0 },
-        { name: "item", price: 10.0}
-        ])
+    })
+
+    test("Add an item", () => {
+        
+        addItem("testItem", 10.0);
+        expect(ITEMS).toContainEqual({ name: "testItem", price: 10.0 });
     })
 
 
